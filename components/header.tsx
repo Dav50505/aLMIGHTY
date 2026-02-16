@@ -1,9 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Utensils } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Utensils } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -14,8 +12,6 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-sm">
       <div className="max-w-[1200px] mx-auto px-4">
@@ -53,58 +49,8 @@ export default function Header() {
               Order Online
             </a>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#1A1A1A] border-t border-white/10"
-          >
-            <nav className="flex flex-col p-4 gap-4">
-              {navLinks?.map((link) => (
-                <Link
-                  key={link?.href}
-                  href={link?.href ?? '/'}
-                  onClick={() => setIsOpen(false)}
-                  className="text-white/80 hover:text-[#E07B54] transition-colors py-2"
-                >
-                  {link?.label}
-                </Link>
-              ))}
-              <a
-                href="https://www.yelp.com/biz/almighty-bistro-el-dorado-hills"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-center"
-              >
-                Reservations
-              </a>
-              <a
-                href="https://order.toasttab.com/online/mom-and-pop-chicken-shop-el-dorado-hills-4355-town-center-blvd-114"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-center"
-              >
-                Order Online
-              </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

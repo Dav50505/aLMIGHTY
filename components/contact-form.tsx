@@ -47,13 +47,15 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="text-center py-8">
-        <CheckCircle className="w-16 h-16 text-[#2A9D8F] mx-auto mb-4" />
-        <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
-        <p className="text-gray-600 mb-6">Your message has been received. We&apos;ll get back to you soon.</p>
+      <div className="border border-white/10 bg-white/[0.02] px-6 py-10 text-center">
+        <CheckCircle className="mx-auto mb-4 h-12 w-12 text-[#E07B54]" />
+        <h3 className="mb-2 font-[family-name:var(--font-playfair)] text-3xl text-white">Thank You!</h3>
+        <p className="mb-8 text-sm leading-relaxed text-white/75">
+          Your message has been received. We&apos;ll get back to you soon.
+        </p>
         <button
           onClick={() => setIsSubmitted(false)}
-          className="btn-secondary"
+          className="inline-flex min-h-11 items-center justify-center border border-[#E07B54] px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#E07B54] disabled:opacity-50"
         >
           Send Another Message
         </button>
@@ -61,99 +63,70 @@ export default function ContactForm() {
     );
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-2">Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            value={formData?.name ?? ''}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E07B54] focus:ring-2 focus:ring-[#E07B54]/20 outline-none transition-all"
-            placeholder="Your name"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={formData?.email ?? ''}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E07B54] focus:ring-2 focus:ring-[#E07B54]/20 outline-none transition-all"
-            placeholder="your@email.com"
-          />
-        </div>
-      </div>
+  const inputClasses =
+    'w-full bg-transparent pb-3 pt-2 text-base text-white placeholder:text-white/35 border-0 border-b border-white/35 outline-none transition-colors focus:border-[#E07B54]';
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData?.phone ?? ''}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E07B54] focus:ring-2 focus:ring-[#E07B54]/20 outline-none transition-all"
-            placeholder="(xxx) xxx-xxxx"
-          />
-        </div>
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData?.subject ?? ''}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E07B54] focus:ring-2 focus:ring-[#E07B54]/20 outline-none transition-all bg-white"
-          >
-            <option value="">Select a subject</option>
-            <option value="general">General Inquiry</option>
-            <option value="catering">Catering</option>
-            <option value="feedback">Feedback</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+  return (
+    <form onSubmit={handleSubmit} className="space-y-7">
+      <div>
+        <label htmlFor="name" className="sr-only">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          value={formData?.name ?? ''}
+          onChange={handleChange}
+          className={inputClasses}
+          placeholder="Name"
+        />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">Message *</label>
+        <label htmlFor="email" className="sr-only">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          value={formData?.email ?? ''}
+          onChange={handleChange}
+          className={inputClasses}
+          placeholder="Email"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="message" className="sr-only">Message</label>
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
+          rows={4}
           value={formData?.message ?? ''}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E07B54] focus:ring-2 focus:ring-[#E07B54]/20 outline-none transition-all resize-none"
-          placeholder="How can we help you?"
+          className={`${inputClasses} min-h-[88px] resize-none`}
+          placeholder="Message"
         />
       </div>
 
       {error && (
-        <p className="text-red-500 text-sm">{error}</p>
+        <p className="text-sm text-[#ff9f9f]">{error}</p>
       )}
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex min-h-11 w-full items-center justify-center gap-2 bg-[#E07B54] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#C96845] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isSubmitting ? (
           <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</>
         ) : (
-          <><Send className="w-5 h-5" /> Send Message</>
+          <><Send className="h-4 w-4" /> Send</>
         )}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
+      <p className="text-center text-xs text-white/45">
         Your information will be stored securely and used only to respond to your inquiry.
       </p>
     </form>

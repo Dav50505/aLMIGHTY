@@ -84,8 +84,8 @@ export default function MenuPage() {
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/poke-bowl.jpg"
-            alt="Poke bowl with fresh ingredients"
+            src="/images/almighty.jpg"
+            alt="aLMIGHTY Bistro atmosphere"
             fill
             className="object-cover"
             priority

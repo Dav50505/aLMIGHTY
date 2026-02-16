@@ -1,125 +1,102 @@
-import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import ContactForm from '@/components/contact-form';
-import PageHero from '@/components/page-hero';
-import { MotionSection, MotionItem } from '@/components/ui/motion-section';
 
 export default function ContactPage() {
   return (
-    <div className="pt-20 md:pt-24">
-      {/* Hero */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/almighty.jpg"
-            alt="aLMIGHTY Bistro welcoming atmosphere"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-        <PageHero title="Contact Us" subtitle="We'd love to hear from you" />
-      </section>
-
-      {/* Contact Content */}
-      <section className="section-padding bg-[#FDF8F3]">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <MotionSection>
-              <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold mb-6">Get in <span className="text-[#E07B54]">Touch</span></h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Have questions about our menu, catering options, or want to provide feedback? We&apos;re here to help. Reach out to us through any of the channels below or fill out the contact form.
+    <div className="pt-20 md:pt-24 bg-[#15181c]">
+      <section className="px-4 py-8 md:px-6 md:py-12 lg:py-16">
+        <div className="mx-auto max-w-[1280px] rounded-sm border border-white/10 bg-[#1A1A1A] px-6 py-8 text-white shadow-[0_12px_50px_rgba(0,0,0,0.35)] sm:px-8 sm:py-10 md:px-12 md:py-12 lg:px-16 lg:py-14">
+          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+            <div>
+              <h1 className="font-[family-name:var(--font-playfair)] text-[3rem] leading-[0.95] tracking-tight text-white sm:text-[4rem] md:text-[4.75rem] lg:text-[5.5rem]">
+                Contact Us
+              </h1>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/75 sm:text-lg">
+                Please feel free to contact us and we will get back to you as soon as we can.
               </p>
 
-              <MotionSection stagger className="space-y-6">
-                <MotionItem className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#E07B54]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:916-510-1204" className="text-gray-600 hover:text-[#E07B54] transition-colors">916-510-1204</a>
-                  </div>
-                </MotionItem>
+              <div className="mt-12 max-w-[560px]">
+                <ContactForm />
+              </div>
+            </div>
 
-                <MotionItem className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#E07B54]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:eat@almightybistro.com" className="text-gray-600 hover:text-[#E07B54] transition-colors">eat@almightybistro.com</a>
-                  </div>
-                </MotionItem>
+            <aside className="flex flex-col gap-10 pt-2">
+              <div>
+                <h2 className="font-[family-name:var(--font-playfair)] text-[1.9rem] leading-tight text-white sm:text-[2.2rem] lg:text-[2.5rem]">
+                  Reach us
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-white/65">
+                  We are available during operating hours and happy to help with orders, events, or general questions.
+                </p>
+              </div>
 
-                <MotionItem className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#E07B54]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-gray-600">4355 Town Center Blvd #114<br />El Dorado Hills, CA 95762</p>
-                  </div>
-                </MotionItem>
+              <div className="space-y-7 text-white/90">
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-[family-name:var(--font-playfair)] text-white">Visit us</h3>
+                  <p className="text-base leading-relaxed text-white/75">
+                    4355 Town Center Blvd #114
+                    <br />
+                    El Dorado Hills, CA 95762
+                  </p>
+                </div>
 
-                <MotionItem className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#E07B54]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Operating Hours</h3>
-                    <p className="text-gray-600">
-                      Monday: 11 AM – 8 PM<br />
-                      Tuesday: 11 AM – 8:30 PM<br />
-                      Wednesday: 11 AM – 8:30 PM<br />
-                      Thursday: 11 AM – 8:30 PM<br />
-                      Friday: 11 AM – 10 PM<br />
-                      Saturday: 11 AM – 10 PM<br />
-                      Sunday: 11 AM – 8 PM
-                    </p>
-                    <p className="text-gray-600 text-sm mt-1">Hours may differ on holidays (e.g. Washington&apos;s Birthday).</p>
-                  </div>
-                </MotionItem>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-[family-name:var(--font-playfair)] text-white">Talk to us</h3>
+                  <p className="text-base leading-relaxed text-white/75">
+                    <a href="tel:916-510-1204" className="transition-colors hover:text-[#E07B54]">
+                      916-510-1204
+                    </a>
+                    <br />
+                    <a href="mailto:eat@almightybistro.com" className="transition-colors hover:text-[#E07B54]">
+                      eat@almightybistro.com
+                    </a>
+                  </p>
+                </div>
 
-                <MotionItem className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#E07B54]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Happy Hour</h3>
-                    <p className="text-gray-600">Monday - Friday<br />2:30pm - 6:00pm</p>
-                  </div>
-                </MotionItem>
-              </MotionSection>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-[family-name:var(--font-playfair)] text-white">Operating Hours</h3>
+                  <p className="text-sm leading-relaxed text-white/75 sm:text-base">
+                    Monday: 11 AM - 8 PM
+                    <br />
+                    Tuesday: 11 AM - 8:30 PM
+                    <br />
+                    Wednesday: 11 AM - 8:30 PM
+                    <br />
+                    Thursday: 11 AM - 8:30 PM
+                    <br />
+                    Friday: 11 AM - 10 PM
+                    <br />
+                    Saturday: 11 AM - 10 PM
+                    <br />
+                    Sunday: 11 AM - 8 PM
+                  </p>
+                  <p className="text-xs text-white/50">
+                    Hours may differ on holidays (e.g. Washington&apos;s Birthday).
+                  </p>
+                </div>
+              </div>
 
-              {/* Quick Actions */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <div className="flex items-center gap-5 text-white/80">
                 <a
-                  href="https://order.toasttab.com/online/mom-and-pop-chicken-shop-el-dorado-hills-4355-town-center-blvd-114"
+                  href="https://www.instagram.com/almightyfoodco/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary text-center"
+                  className="rounded-full border border-white/15 p-2 text-white/80 transition-colors hover:text-[#E07B54]"
+                  aria-label="Instagram"
                 >
-                  Order Online
+                  <Instagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://www.yelp.com/biz/almighty-bistro-el-dorado-hills"
+                  href="https://www.facebook.com/AlmightyBistro/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary text-center"
+                  className="rounded-full border border-white/15 p-2 text-white/80 transition-colors hover:text-[#E07B54]"
+                  aria-label="Facebook"
                 >
-                  Make Reservation
+                  <Facebook className="h-4 w-4" />
                 </a>
               </div>
-            </MotionSection>
-
-            {/* Contact Form */}
-            <MotionSection className="menu-card">
-              <h2 className="font-[family-name:var(--font-playfair)] text-2xl font-bold mb-6">Send a Message</h2>
-              <ContactForm />
-            </MotionSection>
+            </aside>
           </div>
         </div>
       </section>
