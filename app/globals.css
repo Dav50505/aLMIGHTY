@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --coral: #E07B54;
+  --coral-dark: #C96845;
+  --teal: #2A9D8F;
+  --teal-dark: #238B7E;
+  --cream: #FDF8F3;
+  --dark: #1A1A1A;
+  --gold: #D4A85A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--cream);
+  color: var(--dark);
+}
+
+[data-hydration-error] {
+  display: none !important;
+}
+
+@keyframes tropical-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.tropical-gradient {
+  background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 50%, var(--coral) 100%);
+  background-size: 200% 200%;
+  animation: tropical-shift 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tropical-gradient {
+    animation: none;
+    background: linear-gradient(135deg, var(--coral) 0%, var(--teal) 100%);
+    background-size: auto;
+  }
+}
+
+.menu-card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:ring-1 hover:ring-[#E07B54]/20;
+}
+
+.btn-primary {
+  @apply bg-[#E07B54] text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-[#C96845] hover:shadow-lg active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply bg-[#2A9D8F] text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-[#238B7E] hover:shadow-lg active:scale-[0.98];
+}
+
+.section-padding {
+  @apply py-16 md:py-24 px-4;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
