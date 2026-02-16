@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Utensils, Phone, Mail, MapPin } from 'lucide-react';
+import { Utensils, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { MotionSection } from '@/components/ui/motion-section';
 
 export default function Footer() {
@@ -46,6 +46,10 @@ export default function Footer() {
               <div className="flex items-start gap-2 text-white/70 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span>4355 Town Center Blvd #114<br />El Dorado Hills, CA</span>
+              </div>
+              <div className="flex items-start gap-2 text-white/70 text-sm">
+                <Clock className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Mon–Thu 11am–8:30pm, Fri–Sat 11am–10pm, Sun 11am–8pm</span>
               </div>
             </div>
           </div>

@@ -10,19 +10,19 @@ const featuredDishes = [
     name: 'The Cloud Poke',
     price: 28,
     description: 'Raw salmon & ahi tuna with house poke sauce, island fruit salsa, and more',
-    image: '/images/poke-bowl.jpg',
+    image: '/images/CLOUD POKE.png',
   },
   {
-    name: 'aLMIGHTY Kona Melt',
-    price: 21,
-    description: 'Two smashed patties on gluten free focaccia with ghost pepper cheese',
-    image: '/images/burger.jpg',
+    name: 'Coconut Prawns',
+    price: 'Half dozen $19 | Full dozen $32',
+    description: 'Butterflied and sauteed in tropical honey bbq, then tossed with crispy toasted coconut flake',
+    image: '/images/coconut prawns.png',
   },
   {
-    name: 'Shoreline Tacos',
-    price: 14,
-    description: 'Fresh corn tortillas with your choice of huli-huli chicken, duck, or mahi mahi',
-    image: '/images/sandwich.jpg',
+    name: 'Brussel Sprouts',
+    price: 15,
+    description: 'Marinated and tossed in misoyaki aioli, sauteed, not deep fried, nori flake, almighty aioli',
+    image: '/images/BRUSSEL SPROUTS.jpg',
   },
 ];
 
@@ -30,6 +30,17 @@ const features = [
   { icon: Leaf, title: 'Fresh Ingredients', description: 'Locally sourced, organic produce' },
   { icon: Star, title: 'Island Fusion', description: 'Hawaiian & Asian inspired flavors' },
   { icon: Clock, title: 'Happy Hour', description: 'Daily 2:30pm - 6pm specials' },
+];
+
+const galleryPreviewImages = [
+  { src: '/images/258s.jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (1).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (2).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (3).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (4).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (5).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (6).jpg', alt: 'Gallery dish' },
+  { src: '/images/258s (7).jpg', alt: 'Gallery dish' },
 ];
 
 export default function HomePage() {
@@ -86,12 +97,14 @@ export default function HomePage() {
                     src={dish?.image ?? ''}
                     alt={dish?.name ?? 'Dish'}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover object-[center_70%] transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="font-semibold text-lg">{dish?.name ?? ''}</h3>
-                  <span className="text-[#E07B54] font-bold">${dish?.price ?? 0}</span>
+                  <span className="text-[#E07B54] font-bold">
+                  {typeof dish?.price === 'number' ? `$${dish.price}` : (dish?.price ?? '')}
+                </span>
                 </div>
                 <p className="text-gray-600 text-sm">{dish?.description ?? ''}</p>
               </MotionItem>
@@ -113,11 +126,11 @@ export default function HomePage() {
             <p className="text-white/70 max-w-2xl mx-auto">A visual feast of our culinary creations and tropical atmosphere.</p>
           </MotionSection>
           <MotionSection stagger className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8]?.map((num) => (
-              <MotionItem key={num} className="relative aspect-square rounded-lg overflow-hidden bg-gray-800 group">
+            {galleryPreviewImages?.map((img, index) => (
+              <MotionItem key={index} className="relative aspect-square rounded-lg overflow-hidden bg-gray-800 group">
                 <Image
-                  src={`/images/dish-${num}.jpg`}
-                  alt={`Gallery image ${num}`}
+                  src={img.src}
+                  alt={img.alt}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />

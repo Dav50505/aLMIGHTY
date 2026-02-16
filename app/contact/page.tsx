@@ -69,6 +69,25 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-[#E07B54]" />
                   </div>
                   <div>
+                    <h3 className="font-semibold mb-1">Operating Hours</h3>
+                    <p className="text-gray-600">
+                      Monday: 11 AM – 8 PM<br />
+                      Tuesday: 11 AM – 8:30 PM<br />
+                      Wednesday: 11 AM – 8:30 PM<br />
+                      Thursday: 11 AM – 8:30 PM<br />
+                      Friday: 11 AM – 10 PM<br />
+                      Saturday: 11 AM – 10 PM<br />
+                      Sunday: 11 AM – 8 PM
+                    </p>
+                    <p className="text-gray-600 text-sm mt-1">Hours may differ on holidays (e.g. Washington&apos;s Birthday).</p>
+                  </div>
+                </MotionItem>
+
+                <MotionItem className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#E07B54]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-[#E07B54]" />
+                  </div>
+                  <div>
                     <h3 className="font-semibold mb-1">Happy Hour</h3>
                     <p className="text-gray-600">Monday - Friday<br />2:30pm - 6:00pm</p>
                   </div>
