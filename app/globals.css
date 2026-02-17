@@ -69,6 +69,19 @@ body {
   @apply py-16 md:py-24 px-4;
 }
 
+.section-bleed-cream {
+  background-color: rgb(253 248 243 / 0.82);
+  backdrop-filter: blur(1px);
+}
+
+.section-bleed-dark {
+  background-color: rgb(15 15 15 / 0.62);
+}
+
+.section-bleed-tropical {
+  background: linear-gradient(135deg, rgb(224 123 84 / 0.52), rgb(42 157 143 / 0.46));
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

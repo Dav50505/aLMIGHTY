@@ -37,16 +37,7 @@ export default function GalleryPage() {
     <div className="pt-20 md:pt-24">
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/almighty.jpg"
-            alt="aLMIGHTY Bistro atmosphere"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+        <div className="absolute inset-0 bg-black/45" aria-hidden />
         <PageHero title="Gallery" subtitle="A visual journey through our culinary creations" />
       </section>
 

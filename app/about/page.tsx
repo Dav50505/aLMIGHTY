@@ -14,17 +14,8 @@ export default function AboutPage() {
   return (
     <div className="pt-20 md:pt-24">
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/almighty.jpg"
-            alt="aLMIGHTY Bistro interior with lush tropical plants"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/45" aria-hidden />
         <PageHero title="Our Story" subtitle="Where island flavors meet California freshness" />
       </section>
 
@@ -50,7 +41,7 @@ export default function AboutPage() {
             </MotionSection>
             <MotionSection className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl bg-gray-200">
               <Image
-                src="/images/dish-5.jpg"
+                src="/images/258s.jpg"
                 alt="Signature dish at aLMIGHTY Bistro"
                 fill
                 className="object-cover"
@@ -88,7 +79,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <MotionSection className="relative aspect-square rounded-lg overflow-hidden bg-gray-800">
               <Image
-                src="/images/dish-11.jpg"
+                src="/images/258s (6).jpg"
                 alt="Chef crafted dish"
                 fill
                 className="object-cover"

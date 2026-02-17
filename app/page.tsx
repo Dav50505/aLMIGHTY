@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { ArrowRight, Star, Clock, Leaf } from 'lucide-react';
 import HomeClient from '@/components/home-client';
 import { MotionSection, MotionItem } from '@/components/ui/motion-section';
-import MatteHeroBackground from '@/components/matte-hero-background';
 
 const featuredDishes = [
   {
@@ -48,16 +47,7 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/almighty.jpg"
-            alt="aLMIGHTY Bistro interior with tropical plants and modern seating"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        <div className="absolute inset-0 bg-black/50" aria-hidden />
         <div className="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
           <HomeClient />
         </div>
@@ -82,8 +72,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Dishes */}
-      <section className="relative section-padding">
-        <MatteHeroBackground matteOpacity={90} />
+      <section className="relative section-padding section-bleed-cream">
         <div className="relative z-10 max-w-[1200px] mx-auto">
           <MotionSection className="text-center mb-12">
             <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold mb-4">Signature <span className="text-[#E07B54]">Dishes</span></h2>
@@ -147,8 +136,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative section-padding">
-        <MatteHeroBackground withGradient matteOpacity={85} />
+      <section className="relative section-padding overflow-hidden">
+        <div className="absolute inset-0 section-bleed-dark" aria-hidden />
+        <div className="absolute inset-0 section-bleed-tropical" aria-hidden />
         <MotionSection className="relative z-10 max-w-[1200px] mx-auto text-center text-white" as="div">
           <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold mb-4">Ready to Dine?</h2>
           <p className="text-white/90 max-w-2xl mx-auto mb-8">Join us for an unforgettable island fusion experience. Order online for pickup or make a reservation for dine-in.</p>
